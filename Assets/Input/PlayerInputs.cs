@@ -56,12 +56,12 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Facing"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""dd5a4ce2-a4d1-4d8a-bee7-3759c067ffd6"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""Jump"",
@@ -116,7 +116,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": ""StickDeadzone(min=0.2,max=0.925)"",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""Gamepad;Mouse and Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -256,10 +256,10 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""444d5689-a373-4ff8-bc62-5a0435ff4833"",
-                    ""path"": ""<Gamepad>/rightStick"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": ""InvertVector2(invertX=false),StickDeadzone(min=0.125,max=0.925)"",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""Mouse and Keyboard"",
                     ""action"": ""Facing"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
