@@ -7,10 +7,13 @@ using UnityEngine;
 public class PatrolController : MonoBehaviour
 {
     [SerializeField] NavigationController _navigationController;
+    [SerializeField]  float _waitTime = 3f;
+    [SerializeField]  float _gizmoRadius = .3f;
 
     List<Transform> _waypoints;
     private Vector3 _targetPosition;
     int _currentIndex = 0;
+    private bool _waiting = false;
 
 
     private void Awake()
@@ -38,11 +41,19 @@ public class PatrolController : MonoBehaviour
 
     void Patrol()
     {
-        if (!_navigationController.HasPath())
+        if (!_navigationController.HasPath() && !_waiting)
         {
-            _targetPosition = NextWaypoint();
-            _navigationController.MoveTo(_targetPosition);
+            StartCoroutine(PausePatrol());
         }
+    }
+
+    IEnumerator PausePatrol()
+    {
+        _targetPosition = NextWaypoint();
+        _waiting = true;
+        yield return new WaitForSeconds(_waitTime);
+        _navigationController.MoveTo(_targetPosition);
+        _waiting = false;
     }
 
     Vector3 NextWaypoint()
@@ -59,5 +70,18 @@ public class PatrolController : MonoBehaviour
         }
 
         return i + 1;
+    }
+
+
+    void OnDrawGizmos()
+    {
+        for (int i = 0; i < _waypoints.Count; i++)
+        {
+            int j = GetNextIndex(i);
+            Gizmos.color = Color.green;
+            Gizmos.DrawSphere(_waypoints[i].position, _gizmoRadius);
+            Gizmos.color = Color.white;
+            Gizmos.DrawLine(_waypoints[i].position, _waypoints[j].position);
+        }
     }
 }
