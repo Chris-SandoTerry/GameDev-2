@@ -10,7 +10,7 @@ public class PatrolController : MonoBehaviour
     [SerializeField]  float _waitTime = 3f;
     [SerializeField]  float _gizmoRadius = .3f;
 
-    List<Transform> _waypoints;
+    List<Transform> _waypoints = new List<Transform>();
     private Vector3 _targetPosition;
     int _currentIndex = 0;
     private bool _waiting = false;
