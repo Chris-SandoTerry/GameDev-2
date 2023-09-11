@@ -467,7 +467,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885428596}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.018640274, y: -1e-45, z: -0, w: 0.99982625}
+  m_LocalRotation: {x: 0.018640261, y: -0.000000001075212, z: 2.0045715e-11, w: 0.99982625}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -546,7 +546,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417510190}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.017690668, y: 0.000000017203687, z: 3.0439232e-10, w: 0.99984354}
+  m_LocalRotation: {x: -0.017690677, y: 0.000000017203687, z: 3.0439248e-10, w: 0.99984354}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -752,7 +752,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966539066}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0004508601, y: -0.000000017204682, z: 7.756905e-12, w: 0.99999994}
+  m_LocalRotation: {x: 0.000450849, y: 0.000000017209894, z: -7.759064e-12, w: 0.99999994}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -854,6 +854,8 @@ GameObject:
   - component: {fileID: 1382432086662631575}
   - component: {fileID: 700688023355839687}
   - component: {fileID: 8516634488000647265}
+  - component: {fileID: 3594715209679368939}
+  - component: {fileID: 1145160860123936935}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -911,7 +913,7 @@ MonoBehaviour:
     isHead: 1
   Walkable:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   ownCollider: {fileID: 1382432086662631575}
   radius: 0.6
 --- !u!114 &1382432086666633467
@@ -929,7 +931,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   animationSpeed: 1
   ikHands: {fileID: 0}
-  target: {fileID: 0}
+  target: {fileID: 1382432086659828031}
   rightWeapon: 0
   leftWeapon: 0
 --- !u!114 &1349341262566248743
@@ -1051,7 +1053,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1382432086659536159}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
@@ -1075,6 +1077,40 @@ MonoBehaviour:
   m_DefaultActionMap: RPGCharacter
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &3594715209679368939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382432086659536159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d318ae19e9504acb8ae6f4feb2aeee0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targets: []
+--- !u!135 &1145160860123936935
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382432086659536159}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1382432087255037955
 GameObject:
   m_ObjectHideFlags: 0

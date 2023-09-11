@@ -9,7 +9,8 @@ using UnityEngine.InputSystem;
 public class PlayerInputSystemController : MonoBehaviour
 {
     public PlayerInputs _playerInputs;
-
+    
+    Targeter _targeter;
     RPGCharacterController _rpgCharacterController;
 
     //Inputs
@@ -17,7 +18,7 @@ public class PlayerInputSystemController : MonoBehaviour
     bool _inputAttackL;
     bool _inputAttackR;
     bool _inputRoll;
-    bool _inputAim;
+    bool _inputAim = false;
     Vector2 _inputMovement;
     bool _inputFace;
     Vector2 _inputFacing;
@@ -25,15 +26,16 @@ public class PlayerInputSystemController : MonoBehaviour
     
     //Variables
     Vector3 _moveInput;
-    Vector3 _currentAim;
+    Target _currentTarget;
     float _inputPauseTimeout = 0;
     bool _inputPaused = false;
 
     void Awake()
     {
+        _targeter = GetComponent<Targeter>();
         _rpgCharacterController = GetComponent<RPGCharacterController>();
         _playerInputs = new PlayerInputs();
-        _currentAim = Vector3.zero;
+        
     }
 
     void OnEnable()
@@ -103,6 +105,22 @@ public class PlayerInputSystemController : MonoBehaviour
                 else if (_rpgCharacterController.CanEndAction("SlowTime"))
                 { _rpgCharacterController.EndAction("SlowTime"); }
             }
+            //Aim toggle.
+            if (_playerInputs.Player.Aim.WasPressedThisFrame())
+            {
+                _inputAim = !_inputAim;
+                if (_inputAim)
+                {
+                    if (_targeter.HasTarget())
+                    {
+                        _currentTarget = _targeter.GetTarget();
+                    }
+                }
+                else
+                {
+                    _inputAim = false;
+                }
+            }
         }
         catch (System.Exception) { Debug.LogError("Inputs not found! " + 
                                                   "Make sure your project is using the new InputSystem: Edit>Project Settings>Player>Active Input Handling  - change to 'Input System Package (New)'.");}
@@ -135,18 +153,30 @@ public class PlayerInputSystemController : MonoBehaviour
 
         _rpgCharacterController.StartAction("DiveRoll", 1);
     }
-    
+
     void Aiming()
-    { Strafing(); }
+    {
+        Strafing();
+    }
     
     void Strafing()
     {
-        if (_rpgCharacterController.canStrafe) {
-            if (_inputAim) {
-                if (_rpgCharacterController.CanStartAction("Strafe")) { _rpgCharacterController.StartAction("Strafe"); }
+        if (_rpgCharacterController.canStrafe)
+        {
+            _rpgCharacterController.SetAimInput(_currentTarget.transform.position);
+            if (_inputAim) 
+            {
+                if (_rpgCharacterController.CanStartAction("Strafe"))
+                {
+                    _rpgCharacterController.StartAction("Strafe");
+                }
             }
-            else {
-                if (_rpgCharacterController.CanEndAction("Strafe")) { _rpgCharacterController.EndAction("Strafe"); }
+            else
+            {
+                if (_rpgCharacterController.CanEndAction("Strafe"))
+                {
+                    _rpgCharacterController.EndAction("Strafe");
+                }
             }
         }
     }
