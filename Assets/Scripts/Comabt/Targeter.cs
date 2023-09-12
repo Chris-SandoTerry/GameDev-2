@@ -1,9 +1,11 @@
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class Targeter : MonoBehaviour
 {
-
+    [SerializeField]CinemachineTargetGroup _targetGroup;
+    [SerializeField] private CinemachineVirtualCamera _targetingCamera;
     public List<Target> _targets = new List<Target>();
 
 
