@@ -115,11 +115,12 @@ public class PlayerInputSystemController : MonoBehaviour
                     {
                         _currentTarget = _targeter.GetTarget();
                     }
+                    else
+                    {
+                        _inputAim = false;
+                    }
                 }
-                else
-                {
-                    _inputAim = false;
-                }
+                
             }
         }
         catch (System.Exception) { Debug.LogError("Inputs not found! " + 
