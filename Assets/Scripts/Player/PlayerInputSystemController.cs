@@ -164,9 +164,10 @@ public class PlayerInputSystemController : MonoBehaviour
     {
         if (_rpgCharacterController.canStrafe)
         {
-            _rpgCharacterController.SetAimInput(_currentTarget.transform.position);
+           
             if (_inputAim) 
             {
+                _rpgCharacterController.SetAimInput(_currentTarget.transform.position);
                 if (_rpgCharacterController.CanStartAction("Strafe"))
                 {
                     _rpgCharacterController.StartAction("Strafe");
