@@ -15,8 +15,15 @@ public class Targeter : MonoBehaviour
     public List<Target> _targets = new List<Target>();
 
     Camera _mainCamera;
+    PlayerInputSystemController _playerInputController;
 
-    private void Start()
+
+    void Awake()
+    {
+        _playerInputController = GetComponent<PlayerInputSystemController>();
+    }
+
+    void Start()
     {
         _mainCamera = Camera.main;
     }
@@ -37,13 +44,14 @@ public class Targeter : MonoBehaviour
 
      }
 
-     private void RemoveTarget(Target target)
+     void RemoveTarget(Target target)
      {
          if (CurrentTarget == target)
          {
              _targetingCamera.Priority = 9;
              _targetGroup.RemoveMember(CurrentTarget.transform);
              CurrentTarget = null;
+             _playerInputController.CancelInputAim();
          }
 
          target.OnDestroyed -= RemoveTarget;
