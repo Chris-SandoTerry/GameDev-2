@@ -1,41 +1,94 @@
+using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Cinemachine;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Targeter : MonoBehaviour
 {
     [SerializeField]CinemachineTargetGroup _targetGroup;
     [SerializeField] private CinemachineVirtualCamera _targetingCamera;
+    
+    public Target CurrentTarget {get; private set;}
+
     public List<Target> _targets = new List<Target>();
 
+    Camera _mainCamera;
 
-     void OnTriggerEnter(Collider other)
+    private void Start()
+    {
+        _mainCamera = Camera.main;
+    }
+
+
+    void OnTriggerEnter(Collider other)
     {
       if(!other.TryGetComponent<Target>(out Target target)) return;
       _targets.Add(target);
+      target.OnDestroyed += RemoveTarget;
 
-      
     }
 
      void OnTriggerExit(Collider other)
      {
          if(!other.TryGetComponent<Target>(out Target target)) return;
-         _targets.Remove(target);
+         RemoveTarget(target);
 
      }
 
-     public bool HasTarget()
+     private void RemoveTarget(Target target)
      {
-         if (_targets.Count == 0)
+         if (CurrentTarget == target)
          {
-             return false;
+             _targetingCamera.Priority = 9;
+             _targetGroup.RemoveMember(CurrentTarget.transform);
+             CurrentTarget = null;
          }
+
+         target.OnDestroyed -= RemoveTarget;
+         _targets.Remove(target);
+     }
+
+     public bool SelectTarget()
+     {
+         if (_targets.Count == 0) return false;
+
+         Target closestTarget = null;
+         float closestDistance = Mathf.Infinity;
+
+         foreach (Target target in _targets)
+         {
+             Vector2 _viewPos = _mainCamera.WorldToViewportPoint(target.transform.position);
+             if (_viewPos.x < 0 || _viewPos.x > 1 || _viewPos.y < 0 || _viewPos.y > 1)
+             {
+                 continue;
+             }
+             
+             Vector2 _toCenter = _viewPos - new Vector2(.5f,.5f);
+             if (_toCenter.sqrMagnitude < closestDistance)
+             {
+                 closestTarget = target;
+                 closestDistance = _toCenter.sqrMagnitude;
+             }
+         }
+
+         if (closestTarget == null) return false;
+         
+         CurrentTarget = closestTarget;
+
+         _targetGroup.AddMember(CurrentTarget.transform, 1f, 2f );
+         _targetingCamera.Priority = 11;
 
          return true;
      }
 
-     public Target GetTarget()
+     public void Cancel()
      {
-         return _targets[0];
+         if (CurrentTarget == null) return;
+         _targetingCamera.Priority = 9;
+         _targetGroup.RemoveMember(CurrentTarget.transform);
+         CurrentTarget = null;
      }
+
 }

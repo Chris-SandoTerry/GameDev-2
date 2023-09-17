@@ -240,6 +240,17 @@ namespace RPGCharacterAnims
                 },
                 {
                     ""name"": """",
+                    ""id"": ""05c0ea50-cae0-44ef-b7f6-74fb2faa0ca5"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""49d9ee54-833f-4704-9579-a66ccde8c535"",
                     ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
