@@ -12,6 +12,7 @@ public class PlayerInputSystemController : MonoBehaviour
     
     Targeter _targeter;
     RPGCharacterController _rpgCharacterController;
+     Targeter _crossHair;
 
     //Inputs
     bool _inputJump;
@@ -59,7 +60,9 @@ public class PlayerInputSystemController : MonoBehaviour
             if (Time.time > _inputPauseTimeout) { _inputPaused = false; } 
             else { return; }
         }
-
+        
+        
+         
         if (!_inputPaused) { Inputs(); }
 
         Moving();
@@ -70,6 +73,8 @@ public class PlayerInputSystemController : MonoBehaviour
         Aiming();
         Rolling();
         Attacking();
+        
+        
     }
 
     public void PauseInput(float timeout)
@@ -161,7 +166,16 @@ public class PlayerInputSystemController : MonoBehaviour
 
     void Aiming()
     {
+       /* if (_playerInputs.Player.Aim.WasPressedThisFrame()) 
+        {
+            _crossHair.ShowCrosshair();
+        }
+        else
+        {
+            _crossHair.HideCrosshair();
+        }*/
         Strafing();
+        
     }
     
     void Strafing()

@@ -9,6 +9,7 @@ public class Targeter : MonoBehaviour
 {
     [SerializeField]CinemachineTargetGroup _targetGroup;
     [SerializeField] private CinemachineVirtualCamera _targetingCamera;
+    [SerializeField] private GameObject crosshair;
     
     public Target CurrentTarget {get; private set;}
 
@@ -26,6 +27,7 @@ public class Targeter : MonoBehaviour
     void Start()
     {
         _mainCamera = Camera.main;
+        HideCrosshair();
     }
 
 
@@ -98,5 +100,23 @@ public class Targeter : MonoBehaviour
          _targetGroup.RemoveMember(CurrentTarget.transform);
          CurrentTarget = null;
      }
+     
+     public void ShowCrosshair()
+     {
+         if (crosshair != null)
+         {
+             crosshair.SetActive(true);
+         }
+     }
+     
+     
+     public void HideCrosshair()
+     {
+         if (crosshair != null)
+         {
+             crosshair.SetActive(false);
+         }
+     }
+     
 
 }
