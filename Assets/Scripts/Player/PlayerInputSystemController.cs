@@ -166,16 +166,7 @@ public class PlayerInputSystemController : MonoBehaviour
 
     void Aiming()
     {
-       /* if (_playerInputs.Player.Aim.WasPressedThisFrame()) 
-        {
-            _crossHair.ShowCrosshair();
-        }
-        else
-        {
-            _crossHair.HideCrosshair();
-        }*/
         Strafing();
-        
     }
     
     void Strafing()
@@ -189,6 +180,7 @@ public class PlayerInputSystemController : MonoBehaviour
                 if (_rpgCharacterController.CanStartAction("Strafe"))
                 {
                     _rpgCharacterController.StartAction("Strafe");
+                    
                 }
             }
             else
@@ -196,6 +188,7 @@ public class PlayerInputSystemController : MonoBehaviour
                 if (_rpgCharacterController.CanEndAction("Strafe"))
                 {
                     _rpgCharacterController.EndAction("Strafe");
+                  
                 }
             }
         }

@@ -241,7 +241,7 @@ namespace RPGCharacterAnims
                 {
                     ""name"": """",
                     ""id"": ""05c0ea50-cae0-44ef-b7f6-74fb2faa0ca5"",
-                    ""path"": ""<Keyboard>/r"",
+                    ""path"": ""<Keyboard>/4"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
