@@ -2,11 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using RPGCharacterAnims;
 using UnityEngine;
 
 public class PatrolController : MonoBehaviour
 {
-    [SerializeField] NavigationController _navigationController;
+    [SerializeField] RPGCharacterNavigationController _rpgNavigationController;
     [SerializeField]  float _waitTime = 3f;
     [SerializeField]  float _gizmoRadius = .3f;
 
@@ -27,7 +28,7 @@ public class PatrolController : MonoBehaviour
         if (_waypoints.Count > 0)
         {
             _targetPosition = _waypoints[_currentIndex].position;
-            _navigationController.MoveTo(_targetPosition);
+            _rpgNavigationController.MeshNavToPoint(_targetPosition);
         }
     }
 
@@ -41,7 +42,7 @@ public class PatrolController : MonoBehaviour
 
     void Patrol()
     {
-        if (!_navigationController.HasPath() && !_waiting)
+        if (!_rpgNavigationController.navMeshAgent.hasPath && !_waiting)
         {
             StartCoroutine(PausePatrol());
         }
@@ -52,7 +53,7 @@ public class PatrolController : MonoBehaviour
         _targetPosition = NextWaypoint();
         _waiting = true;
         yield return new WaitForSeconds(_waitTime);
-        _navigationController.MoveTo(_targetPosition);
+        _rpgNavigationController.MeshNavToPoint(_targetPosition);
         _waiting = false;
     }
 
