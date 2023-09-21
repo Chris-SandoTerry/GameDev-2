@@ -278,7 +278,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 9.8310984e-11, y: 0.99423385, z: -0.10723361, w: 9.115025e-10}
+  m_LocalRotation: {x: 9.8310984e-11, y: 0.99423385, z: -0.10723361, w: 9.1150426e-10}
   m_LocalPosition: {x: -13.8, y: 5.1, z: -1.5799999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -905,11 +905,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 885428598, guid: c8862553b3eb61c4fa194d1a00fcbcd3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000001075212
+      value: -0.000000001075212
       objectReference: {fileID: 0}
     - target: {fileID: 885428598, guid: c8862553b3eb61c4fa194d1a00fcbcd3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -2.0045715e-11
+      value: 2.0045715e-11
       objectReference: {fileID: 0}
     - target: {fileID: 1417510190, guid: c8862553b3eb61c4fa194d1a00fcbcd3, type: 3}
       propertyPath: m_Layer
@@ -945,15 +945,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1966539068, guid: c8862553b3eb61c4fa194d1a00fcbcd3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0004508483
+      value: 0.00045084883
       objectReference: {fileID: 0}
     - target: {fileID: 1966539068, guid: c8862553b3eb61c4fa194d1a00fcbcd3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017206377
+      value: 0.000000017211777
       objectReference: {fileID: 0}
     - target: {fileID: 1966539068, guid: c8862553b3eb61c4fa194d1a00fcbcd3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 7.7574665e-12
+      value: -7.75991e-12
       objectReference: {fileID: 0}
     - target: {fileID: 86689041607313786, guid: c8862553b3eb61c4fa194d1a00fcbcd3,
         type: 3}
@@ -1003,7 +1003,7 @@ PrefabInstance:
     - target: {fileID: 555108704357625427, guid: c8862553b3eb61c4fa194d1a00fcbcd3,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -9.115025e-10
+      value: -9.1150426e-10
       objectReference: {fileID: 0}
     - target: {fileID: 555108704357625427, guid: c8862553b3eb61c4fa194d1a00fcbcd3,
         type: 3}
@@ -1383,7 +1383,7 @@ PrefabInstance:
     - target: {fileID: 8226827991012591706, guid: c8862553b3eb61c4fa194d1a00fcbcd3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0000000073343247
+      value: 0.000000007334339
       objectReference: {fileID: 0}
     - target: {fileID: 8226827991012591706, guid: c8862553b3eb61c4fa194d1a00fcbcd3,
         type: 3}
@@ -1624,6 +1624,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NPC - Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570180984892613097, guid: d2de827f4ae270a44b666ac5cc233216,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
