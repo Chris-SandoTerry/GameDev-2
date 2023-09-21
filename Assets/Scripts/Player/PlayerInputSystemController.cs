@@ -166,14 +166,7 @@ public class PlayerInputSystemController : MonoBehaviour
 
     void Aiming()
     {
-       /* if (_playerInputs.Player.Aim.WasPressedThisFrame()) 
-        {
-            _crossHair.ShowCrosshair();
-        }
-        else
-        {
-            _crossHair.HideCrosshair();
-        }*/
+       
         Strafing();
         
     }

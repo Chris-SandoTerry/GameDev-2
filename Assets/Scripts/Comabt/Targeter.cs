@@ -66,6 +66,7 @@ public class Targeter : MonoBehaviour
 
          Target closestTarget = null;
          float closestDistance = Mathf.Infinity;
+         ShowCrosshair();
 
          foreach (Target target in _targets)
          {
@@ -99,6 +100,7 @@ public class Targeter : MonoBehaviour
          _targetingCamera.Priority = 9;
          _targetGroup.RemoveMember(CurrentTarget.transform);
          CurrentTarget = null;
+         HideCrosshair();
      }
      
      public void ShowCrosshair()
