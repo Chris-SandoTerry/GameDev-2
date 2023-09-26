@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using RPGCharacterAnims;
+using RPGCharacterAnims.Actions;
 using RPGCharacterAnims.Lookups;
 using UnityEngine.AI;
 
@@ -15,6 +16,9 @@ public class Enemy : MonoBehaviour
     [SerializeField]  float _detectionRange = 15f;
     [SerializeField]  float _attackRange = 2f;
     [SerializeField]  float _rotationSpeed = 1f;
+    [SerializeField] float _timeBetweenAttacks = 3f;
+    [SerializeField] int _damage = 10;
+    
 
     RPGCharacterController _rpgCharacterController;
      RPGCharacterNavigationController _rpgNavigationController; 
@@ -23,7 +27,8 @@ public class Enemy : MonoBehaviour
     GameObject _player;
     Vector3 _targetPosition;
     Vector3 _originPosition;
-   bool aggro = false;
+   bool _aggro = false;
+    float _timeSinceLastAttack = 0f;
 
 
    private void Awake()
@@ -45,22 +50,29 @@ public class Enemy : MonoBehaviour
     {
         if (InDetectionRange())
         {
-            aggro = true;
+            _aggro = true;
             _targetPosition = _rpgCharacterController.target.transform.position;
             if (!InAttackRange())
             {
                 _rpgCharacterController.StartAction(HandlerTypes.Navigation, _targetPosition);
+                _timeSinceLastAttack = 0;
             }
             else
             {
                 _rpgNavigationController.StopNavigating();
                 _rpgNavigationController.StopAnimation();
                 RotateTowardsTarget();
+                _timeSinceLastAttack += Time.deltaTime;
+                if (_timeSinceLastAttack >= _timeBetweenAttacks)
+                {
+                    Attack();
+                    _timeSinceLastAttack = 0;
+                }
             }
         }
-        else if (aggro)
+        else if (_aggro)
         {
-            aggro = false;
+            _aggro = false;
             Reset();
         }
     }
@@ -91,8 +103,14 @@ public class Enemy : MonoBehaviour
         _rpgCharacterController.StartAction(HandlerTypes.Navigation, _originPosition);
     }
 
+    void Attack()
+    {
+        _rpgCharacterController.StartAction(HandlerTypes.Attack, new AttackContext(HandlerTypes.Attack, Side.Right));
+        _player.GetComponent<Health>().DealDamage(_damage);
+    }
 
-     void OnDrawGizmos()
+
+    void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(transform.position, _detectionRange);
