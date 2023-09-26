@@ -18,6 +18,10 @@ public class Enemy : MonoBehaviour
     [SerializeField]  float _rotationSpeed = 1f;
     [SerializeField] float _timeBetweenAttacks = 3f;
     [SerializeField] int _damage = 10;
+    [SerializeField] AudioSource _audioSource;
+    [SerializeField] AudioClip _detectionAudioClip;
+    [SerializeField]  AudioSource _musicAudioSource;
+    [SerializeField] AudioClip _musicAudioClip;
     
 
     RPGCharacterController _rpgCharacterController;
@@ -29,8 +33,8 @@ public class Enemy : MonoBehaviour
     Vector3 _targetPosition;
     Vector3 _originPosition;
    bool _aggro = false;
-    float _timeSinceLastAttack = 0f;
-
+    float _timeSinceLastAttack = 0f; 
+    bool _musicPlaying = true;
 
    private void Awake()
    {
@@ -38,6 +42,13 @@ public class Enemy : MonoBehaviour
        _rpgNavigationController = GetComponent<RPGCharacterNavigationController>();
        _navMeshAgent = GetComponent<NavMeshAgent>();
        _health = GetComponent<Health>();
+       
+       if (_musicAudioSource != null && _musicAudioClip != null)
+       {
+           _musicAudioSource.loop = true;
+           _musicAudioSource.clip = _musicAudioClip;
+           _musicAudioSource.Play();
+       }
    }
 
    void Start()
@@ -46,6 +57,7 @@ public class Enemy : MonoBehaviour
        _playerHealth = _player.GetComponent<Health>();
        _rpgCharacterController.target = _player.transform;
        _originPosition = transform.position;
+       
    }
 
    
@@ -57,6 +69,7 @@ public class Enemy : MonoBehaviour
         {
             _aggro = true;
             _targetPosition = _rpgCharacterController.target.transform.position;
+
             if (!InAttackRange())
             {
                 _rpgCharacterController.StartAction(HandlerTypes.Navigation, _targetPosition);
