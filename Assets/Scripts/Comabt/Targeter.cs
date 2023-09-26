@@ -67,6 +67,7 @@ public class Targeter : MonoBehaviour
          ShowCrosshair();
          Target closestTarget = null;
          float closestDistance = Mathf.Infinity;
+         ShowCrosshair();
 
          foreach (Target target in _targets)
          {

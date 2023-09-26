@@ -166,7 +166,9 @@ public class PlayerInputSystemController : MonoBehaviour
 
     void Aiming()
     {
+       
         Strafing();
+        
     }
     
     void Strafing()
@@ -180,7 +182,6 @@ public class PlayerInputSystemController : MonoBehaviour
                 if (_rpgCharacterController.CanStartAction("Strafe"))
                 {
                     _rpgCharacterController.StartAction("Strafe");
-                    
                 }
             }
             else
@@ -188,7 +189,6 @@ public class PlayerInputSystemController : MonoBehaviour
                 if (_rpgCharacterController.CanEndAction("Strafe"))
                 {
                     _rpgCharacterController.EndAction("Strafe");
-                  
                 }
             }
         }
