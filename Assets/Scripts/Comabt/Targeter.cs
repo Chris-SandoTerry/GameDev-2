@@ -63,7 +63,8 @@ public class Targeter : MonoBehaviour
      public bool SelectTarget()
      {
          if (_targets.Count == 0) return false;
-
+        
+         ShowCrosshair();
          Target closestTarget = null;
          float closestDistance = Mathf.Infinity;
          ShowCrosshair();
@@ -75,6 +76,7 @@ public class Targeter : MonoBehaviour
              {
                  continue;
              }
+             
              
              Vector2 _toCenter = _viewPos - new Vector2(.5f,.5f);
              if (_toCenter.sqrMagnitude < closestDistance)
@@ -110,8 +112,7 @@ public class Targeter : MonoBehaviour
              crosshair.SetActive(true);
          }
      }
-     
-     
+    
      public void HideCrosshair()
      {
          if (crosshair != null)
