@@ -70,6 +70,12 @@ public class Enemy : MonoBehaviour
             _aggro = true;
             _targetPosition = _rpgCharacterController.target.transform.position;
 
+            if (!AudioManager.Instance.musicSource.isPlaying)
+            {
+                AudioManager.Instance.PlayMusic("Combat");
+            }
+            
+            
             if (!InAttackRange())
             {
                 _rpgCharacterController.StartAction(HandlerTypes.Navigation, _targetPosition);
@@ -99,14 +105,12 @@ public class Enemy : MonoBehaviour
     {
         if (!_playerHealth.IsAlive()) return false;
         float playerDistanceSqr = (_player.transform.position - transform.position).sqrMagnitude;
-
         return playerDistanceSqr <= _detectionRange * _detectionRange;
     }
 
     bool InAttackRange()
     {
         float playerDistanceSqr = (_player.transform.position - transform.position).sqrMagnitude;
-
         return playerDistanceSqr <= _attackRange * _attackRange;
     }
 
@@ -120,10 +124,12 @@ public class Enemy : MonoBehaviour
     public void Reset()
     {
         _rpgCharacterController.StartAction(HandlerTypes.Navigation, _originPosition);
+        AudioManager.Instance.musicSource.Stop();
     }
 
     void Attack()
     {
+        AudioManager.Instance.PlaySFX("damage");
         _rpgCharacterController.StartAction(HandlerTypes.Attack, new AttackContext(HandlerTypes.Attack, Side.Right));
         _playerHealth.DealDamage(_damage);
     }

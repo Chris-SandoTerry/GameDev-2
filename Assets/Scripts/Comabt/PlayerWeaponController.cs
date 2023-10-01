@@ -33,6 +33,7 @@ public class PlayerWeaponController : MonoBehaviour
 
      void Hit()
      {
+         AudioManager.Instance.PlaySFX("Hit");
          foreach (Health enemy in _weaponData.Enemies)
          {
              enemy.DealDamage(_weaponData.Damage);

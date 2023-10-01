@@ -30,12 +30,15 @@ public class Health : MonoBehaviour
 
         if (_health > 0)
         {
+            
             _rpgCharacterController.GetHit(1);
         }
         else
         {
             _rpgCharacterController.Knockdown(KnockdownType.Knockdown1);
             _alive = false;
+            AudioManager.Instance.musicSource.Stop();
+            AudioManager.Instance.PlaySFX("Death");
 
 
             if (GetComponent<Target>())
