@@ -118,6 +118,7 @@ public class PlayerInputSystemController : MonoBehaviour
             //Aim toggle.
             if (_playerInputs.Player.Aim.WasPressedThisFrame())
             {
+                Debug.Log("Button was pressed!");
                 _inputAim = !_inputAim;
                 if (_inputAim)
                 {
