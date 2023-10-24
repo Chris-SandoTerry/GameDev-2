@@ -12,33 +12,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbdbd6121db59f34fa0dd200047025c7, type: 3}
   m_Name: NewDialogue
   m_EditorClassIdentifier: 
-  _nodes:
-  - UniqueID: a
-    Text: Hello!!!
-    Children:
-    - b
-    - c
-    Rect:
-      serializedVersion: 2
-      x: 62
-      y: 73
-      width: 200
-      height: 200
-  - UniqueID: b
-    Text: Hello
-    Children: []
-    Rect:
-      serializedVersion: 2
-      x: 377
-      y: 260
-      width: 200
-      height: 100
-  - UniqueID: c
-    Text: Time to die!
-    Children: []
-    Rect:
-      serializedVersion: 2
-      x: 412
-      y: 73
-      width: 200
-      height: 100

@@ -10,6 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbdbd6121db59f34fa0dd200047025c7, type: 3}
-  m_Name: NewDialogue 2
+  m_Name: NewDialogue 1
   m_EditorClassIdentifier: 
-  _nodes: []
