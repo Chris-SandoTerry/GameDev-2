@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 [CreateAssetMenu (fileName = "NewDialogue", menuName = "Dialogue", order = 0)]
 public class Dialogue : ScriptableObject, ISerializationCallbackReceiver
 {
-   List<DialogueNode> _nodes = new List<DialogueNode>();
+   [SerializeField] List<DialogueNode> _nodes = new List<DialogueNode>();
 
    Dictionary<string, DialogueNode> _nodeLookup = new Dictionary<string, DialogueNode>();
 

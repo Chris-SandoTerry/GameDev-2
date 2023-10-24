@@ -29,6 +29,7 @@ public class DialogueNode : ScriptableObject
     {
         Undo.RecordObject(this, "Move Dialogue Node");
         _rect.position = newPosition;
+        EditorUtility.SetDirty(this);
     }
 
     public void SetText(string newText)
@@ -37,6 +38,7 @@ public class DialogueNode : ScriptableObject
         {
             Undo.RecordObject(this,"Update Dialogue Text");
             _text = newText;
+            EditorUtility.SetDirty(this);
         }
     }
 
@@ -44,12 +46,14 @@ public class DialogueNode : ScriptableObject
     {
         Undo.RecordObject(this, "Add Dialogue Link");
         _children.Add(childID);
+        EditorUtility.SetDirty(this);
     }
     
     public void RemoveChild(string childID)
     {
         Undo.RecordObject(this, "Remove Dialogue Link");
         _children.Remove(childID);
+        EditorUtility.SetDirty(this);
     }
     
 #endif

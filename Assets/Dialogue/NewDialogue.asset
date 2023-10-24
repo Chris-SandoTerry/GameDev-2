@@ -1,5 +1,46 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7144767210164430653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1683f99707f15c04183c22505a286ea7, type: 3}
+  m_Name: 7eadbf08-1023-4e8e-a39b-ae7ca44e77ef
+  m_EditorClassIdentifier: 
+  _text: dsadasda
+  _children: []
+  _rect:
+    serializedVersion: 2
+    x: 825
+    y: 242
+    width: 200
+    height: 100
+--- !u!114 &-6011625362667700527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1683f99707f15c04183c22505a286ea7, type: 3}
+  m_Name: 78c6dacf-3b34-40e4-a5fe-d4bc9b3d5bb2
+  m_EditorClassIdentifier: 
+  _text: fefefef
+  _children:
+  - 7eadbf08-1023-4e8e-a39b-ae7ca44e77ef
+  _rect:
+    serializedVersion: 2
+    x: 486
+    y: 206
+    width: 200
+    height: 100
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,7 +53,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbdbd6121db59f34fa0dd200047025c7, type: 3}
   m_Name: NewDialogue
   m_EditorClassIdentifier: 
---- !u!114 &726195116496357620
+  _nodes:
+  - {fileID: 1042601010092194847}
+  - {fileID: -6011625362667700527}
+  - {fileID: -7144767210164430653}
+--- !u!114 &1042601010092194847
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -22,13 +67,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1683f99707f15c04183c22505a286ea7, type: 3}
-  m_Name: d981eac1-0b0a-44b0-a529-26a14c588cac
+  m_Name: 8f607ced-a9bb-40a2-a843-e3e5a5fb61ec
   m_EditorClassIdentifier: 
   _text: 
-  _children: []
+  _children:
+  - 78c6dacf-3b34-40e4-a5fe-d4bc9b3d5bb2
   _rect:
     serializedVersion: 2
-    x: 0
-    y: 0
+    x: 3
+    y: 7
     width: 200
     height: 100
