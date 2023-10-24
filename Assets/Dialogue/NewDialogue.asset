@@ -12,3 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbdbd6121db59f34fa0dd200047025c7, type: 3}
   m_Name: NewDialogue
   m_EditorClassIdentifier: 
+--- !u!114 &726195116496357620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1683f99707f15c04183c22505a286ea7, type: 3}
+  m_Name: d981eac1-0b0a-44b0-a529-26a14c588cac
+  m_EditorClassIdentifier: 
+  _text: 
+  _children: []
+  _rect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 200
+    height: 100
