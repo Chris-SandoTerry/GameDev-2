@@ -6,30 +6,37 @@ using UnityEngine.UI;
 
 public class DialogueUI : MonoBehaviour
 {
+    [SerializeField]  TMP_Text _nameText;
     [SerializeField]  TMP_Text _AItext;
     [SerializeField]  Button _nextButton;
     [SerializeField]  GameObject _AIresponse;
     [SerializeField]  Transform _choiceRoot;
     [SerializeField]  GameObject _choicePrefab;
+    [SerializeField]  Button _quitButton;
     PlayerDialogue _playerDialogue;
     
     void Start()
     {
         _playerDialogue = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDialogue>();
-        _nextButton.onClick.AddListener(Next);
-        
+        _playerDialogue.onConcersationUpdated += UpdateUI;
+        _nextButton.onClick.AddListener(() => _playerDialogue.Next());
+        _quitButton.onClick.AddListener(() => _playerDialogue.Quit());
         UpdateUI();
     }
 
-     void Next()
-    {
-        _playerDialogue.Next();
-        UpdateUI();
-    }
+    
 
 
     void UpdateUI()
     {
+        gameObject.SetActive(_playerDialogue.IsActive());
+        if (!_playerDialogue.IsActive())
+        {
+            return;
+        }
+
+        _nameText.text = _playerDialogue.GetCurrentName();
+
         _AIresponse.SetActive(!_playerDialogue.IsChoosing());
         _choiceRoot.gameObject.SetActive(_playerDialogue.IsChoosing());
         if (_playerDialogue.IsChoosing())
@@ -55,7 +62,6 @@ public class DialogueUI : MonoBehaviour
           button.onClick.AddListener(() =>
           {
             _playerDialogue.SelectChoice(choice);
-            UpdateUI();
           });
       }
       

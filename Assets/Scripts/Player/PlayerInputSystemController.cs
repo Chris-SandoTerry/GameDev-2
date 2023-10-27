@@ -19,6 +19,7 @@ public class PlayerInputSystemController : MonoBehaviour
     bool _inputAttackL;
     bool _inputAttackR;
     bool _inputRoll;
+     bool _inputInteract;
     bool _inputAim = false;
     Vector2 _inputMovement;
     bool _inputFace;
@@ -78,8 +79,9 @@ public class PlayerInputSystemController : MonoBehaviour
         Aiming();
         Rolling();
         Attacking();
-        
-        
+        Interacting();
+
+
     }
 
     public void PauseInput(float timeout)
@@ -100,6 +102,7 @@ public class PlayerInputSystemController : MonoBehaviour
             _inputMovement = _playerInputs.Player.Move.ReadValue<Vector2>();
             _inputRoll = _playerInputs.Player.Roll.WasPressedThisFrame();
             _inputSwitchUp = _playerInputs.Player.WeaponUp.WasPressedThisFrame();
+            _inputInteract = _playerInputs.Player.Interact.WasPerformedThisFrame();
             
             // Slow time toggle.
             if (Keyboard.current.tKey.wasPressedThisFrame) {
@@ -168,6 +171,21 @@ public class PlayerInputSystemController : MonoBehaviour
         if (!_rpgCharacterController.CanStartAction("DiveRoll")) { return; }
 
         _rpgCharacterController.StartAction("DiveRoll", 1);
+    }
+
+    void Interacting()
+    {
+        if (!_inputInteract) return;
+
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 5f);
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.gameObject.GetComponent<AIDialogue>())
+            {
+                hitCollider.gameObject.GetComponent<AIDialogue>().StartDialogue();
+                break;
+            }
+        }
     }
 
     void Aiming()

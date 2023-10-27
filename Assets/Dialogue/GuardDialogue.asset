@@ -1,5 +1,26 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8882629196266149184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1683f99707f15c04183c22505a286ea7, type: 3}
+  m_Name: 218a9352-716a-4694-b4ee-6a29aad81fed
+  m_EditorClassIdentifier: 
+  _isPlayer: 0
+  _text: '*crying noise*'
+  _children: []
+  _rect:
+    serializedVersion: 2
+    x: 1050
+    y: 157
+    width: 200
+    height: 100
 --- !u!114 &-8753616936710335785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34,7 +55,7 @@ MonoBehaviour:
   m_Name: b5ee8db5-c7ec-4c26-aa72-eab9644cc95a
   m_EditorClassIdentifier: 
   _isPlayer: 1
-  _text: I'm Lord Farquad
+  _text: I'm the BRUH
   _children:
   - 9e19d22b-9798-478b-baec-42837bdc0e33
   _rect:
@@ -63,6 +84,10 @@ MonoBehaviour:
   - {fileID: 9112658742460507315}
   - {fileID: -8753616936710335785}
   - {fileID: 424326210011129756}
+  - {fileID: 7533832263759958787}
+  - {fileID: 8813549335631007770}
+  - {fileID: -8882629196266149184}
+  - {fileID: 8190020662512244861}
 --- !u!114 &424326210011129756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,12 +144,37 @@ MonoBehaviour:
   m_Name: 9e19d22b-9798-478b-baec-42837bdc0e33
   m_EditorClassIdentifier: 
   _isPlayer: 0
-  _text: You're too tall.
-  _children: []
+  _text: You're werid, anyways help some guards have taken over my village and threw
+    me down the river!
+  _children:
+  - 8522669b-4a61-430b-9d4f-b657e5765421
+  - c5aea535-1a7d-4582-9354-1a454bf0b800
   _rect:
     serializedVersion: 2
-    x: 500
-    y: 40
+    x: 552
+    y: 39
+    width: 200
+    height: 100
+--- !u!114 &7533832263759958787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1683f99707f15c04183c22505a286ea7, type: 3}
+  m_Name: 8522669b-4a61-430b-9d4f-b657e5765421
+  m_EditorClassIdentifier: 
+  _isPlayer: 1
+  _text: I am on it !
+  _children:
+  - f525c406-e5cb-481f-a088-9aa4ef39891a
+  _rect:
+    serializedVersion: 2
+    x: 793
+    y: 37
     width: 200
     height: 100
 --- !u!114 &7652829703402829857
@@ -149,6 +199,49 @@ MonoBehaviour:
     serializedVersion: 2
     x: 15
     y: 41
+    width: 200
+    height: 100
+--- !u!114 &8190020662512244861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1683f99707f15c04183c22505a286ea7, type: 3}
+  m_Name: f525c406-e5cb-481f-a088-9aa4ef39891a
+  m_EditorClassIdentifier: 
+  _isPlayer: 0
+  _text: THANK YOU MY HERO !!!
+  _children: []
+  _rect:
+    serializedVersion: 2
+    x: 1043
+    y: 37
+    width: 200
+    height: 100
+--- !u!114 &8813549335631007770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1683f99707f15c04183c22505a286ea7, type: 3}
+  m_Name: c5aea535-1a7d-4582-9354-1a454bf0b800
+  m_EditorClassIdentifier: 
+  _isPlayer: 1
+  _text: Nah, sucks for you ! LOSER!!
+  _children:
+  - 218a9352-716a-4694-b4ee-6a29aad81fed
+  _rect:
+    serializedVersion: 2
+    x: 800
+    y: 157
     width: 200
     height: 100
 --- !u!114 &9112658742460507315

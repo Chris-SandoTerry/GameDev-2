@@ -269,12 +269,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c78d52f7ad72f948a15171305e73a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _nameText: {fileID: 8307781592263877334}
   _AItext: {fileID: 703259850211951953}
   _nextButton: {fileID: 1249542668119496584}
   _AIresponse: {fileID: 8734904883841649361}
   _choiceRoot: {fileID: 7353281859079507648}
   _choicePrefab: {fileID: 2738774539712122807, guid: 6acb1c00473811247a3c0eb70e9ac528,
     type: 3}
+  _quitButton: {fileID: 8023952820609388233}
 --- !u!1 &1306607793587046295
 GameObject:
   m_ObjectHideFlags: 0
