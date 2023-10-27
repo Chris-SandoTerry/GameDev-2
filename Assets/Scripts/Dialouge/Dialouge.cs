@@ -44,6 +44,29 @@ public class Dialogue : ScriptableObject, ISerializationCallbackReceiver
       }
    }
 
+   public IEnumerable<DialogueNode> GetPlayerChildren(DialogueNode currentNode)
+   {
+      foreach (DialogueNode node in GetAllChildren(currentNode))
+      {
+         if (node.IsPlayer())
+         {
+            yield return node;
+         }
+      }
+   }
+   
+   public IEnumerable<DialogueNode> GetAIChildren(DialogueNode currentNode)
+   {
+      foreach (DialogueNode node in GetAllChildren(currentNode))
+      {
+         if (!node.IsPlayer())
+         {
+            yield return node;
+         }
+      }
+   }
+
+
 #if UNITY_EDITOR
 
    public void CreateNode(DialogueNode parent)
