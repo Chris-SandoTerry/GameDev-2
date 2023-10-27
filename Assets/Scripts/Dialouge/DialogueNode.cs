@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class DialogueNode : ScriptableObject
 {
+    [SerializeField]  bool _isPlayer = false;
     [SerializeField] string _text;
     [SerializeField] List<string> _children = new List<string>();
     [SerializeField] Rect _rect = new Rect(0, 0, 200, 100);
@@ -24,7 +25,11 @@ public class DialogueNode : ScriptableObject
         return _children;
     }
 
-    #if UNITY_EDITOR
+    public bool IsPlayer()
+    {
+        return _isPlayer;
+    }
+#if UNITY_EDITOR
     public void SetPosition(Vector2 newPosition)
     {
         Undo.RecordObject(this, "Move Dialogue Node");
@@ -55,6 +60,13 @@ public class DialogueNode : ScriptableObject
         _children.Remove(childID);
         EditorUtility.SetDirty(this);
     }
-    
+
+    public void SetIsPlayer(bool newPlayer)
+    {
+        Undo.RecordObject(this, "Changed Dialogue Speaker");
+        _isPlayer = newPlayer;
+        EditorUtility.SetDirty(this);
+    }
+
 #endif
 }

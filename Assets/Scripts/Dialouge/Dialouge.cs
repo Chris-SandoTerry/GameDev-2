@@ -9,6 +9,8 @@ public class Dialogue : ScriptableObject, ISerializationCallbackReceiver
 {
    [SerializeField] List<DialogueNode> _nodes = new List<DialogueNode>();
 
+   static Vector2 _newNodeOffset = new Vector2(250, 0);
+
    Dictionary<string, DialogueNode> _nodeLookup = new Dictionary<string, DialogueNode>();
 
    void OnValidate()
@@ -64,6 +66,8 @@ public class Dialogue : ScriptableObject, ISerializationCallbackReceiver
       if (parent != null)
       {
          parent.AddChild(newNode.name);
+         newNode.SetIsPlayer(!parent.IsPlayer());
+         newNode.SetPosition(parent.GetRect().position + _newNodeOffset);
       }
 
       return newNode;
