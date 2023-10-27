@@ -21,7 +21,12 @@ public class Dialogue : ScriptableObject, ISerializationCallbackReceiver
          _nodeLookup[node.name] = node;
       }
    }
-   
+
+   public DialogueNode GetRootNode()
+   {
+      return _nodes[0];
+   }
+
 
    public IEnumerable<DialogueNode> GetAllNodes()
    {
