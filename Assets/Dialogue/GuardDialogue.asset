@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7144767210164430653
+--- !u!114 &-8753616936710335785
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,40 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1683f99707f15c04183c22505a286ea7, type: 3}
-  m_Name: 7eadbf08-1023-4e8e-a39b-ae7ca44e77ef
+  m_Name: a1c54772-f8b9-47cb-99c5-812e32e4876d
   m_EditorClassIdentifier: 
   _isPlayer: 0
-  _text: dsadasda
-  _children:
-  - 904e1198-c5e5-44c0-abb8-5f3b9ec986cf
-  _rect:
-    serializedVersion: 2
-    x: 825
-    y: 242
-    width: 200
-    height: 100
---- !u!114 &-6832056193636377102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1683f99707f15c04183c22505a286ea7, type: 3}
-  m_Name: 0be0cd36-18e5-43d1-aed6-f39a6dcdbf82
-  m_EditorClassIdentifier: 
-  _isPlayer: 0
-  _text: 
+  _text: Nice to meet you no one.
   _children: []
   _rect:
     serializedVersion: 2
-    x: 742
-    y: 2
+    x: 502
+    y: 378
     width: 200
     height: 100
---- !u!114 &-6305236406359328458
+--- !u!114 &-5007607296282520688
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -53,60 +31,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1683f99707f15c04183c22505a286ea7, type: 3}
-  m_Name: 904e1198-c5e5-44c0-abb8-5f3b9ec986cf
+  m_Name: b5ee8db5-c7ec-4c26-aa72-eab9644cc95a
   m_EditorClassIdentifier: 
   _isPlayer: 1
-  _text: 
-  _children: []
-  _rect:
-    serializedVersion: 2
-    x: 1075
-    y: 242
-    width: 200
-    height: 100
---- !u!114 &-6011625362667700527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1683f99707f15c04183c22505a286ea7, type: 3}
-  m_Name: 78c6dacf-3b34-40e4-a5fe-d4bc9b3d5bb2
-  m_EditorClassIdentifier: 
-  _isPlayer: 0
-  _text: fefefef
+  _text: I'm Lord Farquad
   _children:
-  - 7eadbf08-1023-4e8e-a39b-ae7ca44e77ef
-  - 8443f36e-2099-49e4-b70f-ad8658414707
+  - 9e19d22b-9798-478b-baec-42837bdc0e33
   _rect:
     serializedVersion: 2
-    x: 486
-    y: 206
-    width: 200
-    height: 100
---- !u!114 &-3242549222122059888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1683f99707f15c04183c22505a286ea7, type: 3}
-  m_Name: 1976d075-c112-48b5-a970-f2eb0d2da6b0
-  m_EditorClassIdentifier: 
-  _isPlayer: 1
-  _text: 
-  _children:
-  - 0be0cd36-18e5-43d1-aed6-f39a6dcdbf82
-  _rect:
-    serializedVersion: 2
-    x: 492
-    y: 2
+    x: 260
+    y: 37
     width: 200
     height: 100
 --- !u!114 &11400000
@@ -119,18 +53,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbdbd6121db59f34fa0dd200047025c7, type: 3}
-  m_Name: NewDialogue
+  m_Name: GuardDialogue
   m_EditorClassIdentifier: 
   _nodes:
-  - {fileID: 1042601010092194847}
-  - {fileID: -6011625362667700527}
-  - {fileID: -7144767210164430653}
-  - {fileID: -3242549222122059888}
-  - {fileID: -6832056193636377102}
-  - {fileID: 2486883875195003372}
-  - {fileID: 5975107782370171047}
-  - {fileID: -6305236406359328458}
---- !u!114 &1042601010092194847
+  - {fileID: 7652829703402829857}
+  - {fileID: -5007607296282520688}
+  - {fileID: 4463889883917563996}
+  - {fileID: 1243035918484636216}
+  - {fileID: 9112658742460507315}
+  - {fileID: -8753616936710335785}
+  - {fileID: 424326210011129756}
+--- !u!114 &424326210011129756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,59 +73,103 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1683f99707f15c04183c22505a286ea7, type: 3}
-  m_Name: 8f607ced-a9bb-40a2-a843-e3e5a5fb61ec
+  m_Name: 6ba82211-0c76-40a4-9481-1587628f2757
   m_EditorClassIdentifier: 
   _isPlayer: 0
-  _text: Hello!
-  _children:
-  - 78c6dacf-3b34-40e4-a5fe-d4bc9b3d5bb2
-  - 1976d075-c112-48b5-a970-f2eb0d2da6b0
-  _rect:
-    serializedVersion: 2
-    x: 25
-    y: 55
-    width: 200
-    height: 100
---- !u!114 &2486883875195003372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1683f99707f15c04183c22505a286ea7, type: 3}
-  m_Name: 8443f36e-2099-49e4-b70f-ad8658414707
-  m_EditorClassIdentifier: 
-  _isPlayer: 1
-  _text: 
-  _children:
-  - d30463bd-d4f9-492c-807b-4aa34dd97641
-  _rect:
-    serializedVersion: 2
-    x: 798
-    y: 398
-    width: 200
-    height: 100
---- !u!114 &5975107782370171047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1683f99707f15c04183c22505a286ea7, type: 3}
-  m_Name: d30463bd-d4f9-492c-807b-4aa34dd97641
-  m_EditorClassIdentifier: 
-  _isPlayer: 0
-  _text: 
+  _text: I asked you first!
   _children: []
   _rect:
     serializedVersion: 2
-    x: 1072
-    y: 470
+    x: 495
+    y: 218
+    width: 200
+    height: 100
+--- !u!114 &1243035918484636216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1683f99707f15c04183c22505a286ea7, type: 3}
+  m_Name: 96cd9c48-b457-4fe9-a8ef-24c3b2e4fbe5
+  m_EditorClassIdentifier: 
+  _isPlayer: 1
+  _text: Who are you?
+  _children:
+  - 6ba82211-0c76-40a4-9481-1587628f2757
+  _rect:
+    serializedVersion: 2
+    x: 245
+    y: 218
+    width: 200
+    height: 100
+--- !u!114 &4463889883917563996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1683f99707f15c04183c22505a286ea7, type: 3}
+  m_Name: 9e19d22b-9798-478b-baec-42837bdc0e33
+  m_EditorClassIdentifier: 
+  _isPlayer: 0
+  _text: You're too tall.
+  _children: []
+  _rect:
+    serializedVersion: 2
+    x: 500
+    y: 40
+    width: 200
+    height: 100
+--- !u!114 &7652829703402829857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1683f99707f15c04183c22505a286ea7, type: 3}
+  m_Name: 81cec2f5-ff7e-47d6-aa18-521706c0549e
+  m_EditorClassIdentifier: 
+  _isPlayer: 0
+  _text: Hello! Who are you ?
+  _children:
+  - b5ee8db5-c7ec-4c26-aa72-eab9644cc95a
+  - 96cd9c48-b457-4fe9-a8ef-24c3b2e4fbe5
+  - a856dc8d-c6e9-4338-9473-8154e7a99f59
+  _rect:
+    serializedVersion: 2
+    x: 7
+    y: 39
+    width: 200
+    height: 100
+--- !u!114 &9112658742460507315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1683f99707f15c04183c22505a286ea7, type: 3}
+  m_Name: a856dc8d-c6e9-4338-9473-8154e7a99f59
+  m_EditorClassIdentifier: 
+  _isPlayer: 1
+  _text: No one.
+  _children:
+  - a1c54772-f8b9-47cb-99c5-812e32e4876d
+  _rect:
+    serializedVersion: 2
+    x: 251
+    y: 378
     width: 200
     height: 100
