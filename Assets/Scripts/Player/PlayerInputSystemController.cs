@@ -1,4 +1,5 @@
 using System;
+using Cinemachine;
 using RPGCharacterAnims;
 using RPGCharacterAnims.Actions;
 using RPGCharacterAnims.Lookups;
@@ -8,6 +9,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputSystemController : MonoBehaviour
 {
+    [SerializeField]  CinemachineInputProvider _cinemachineInputProvider;
     public PlayerInputs _playerInputs;
     
     Targeter _targeter;
@@ -32,6 +34,7 @@ public class PlayerInputSystemController : MonoBehaviour
     Target _currentTarget;
     float _inputPauseTimeout = 0;
     bool _inputPaused = false;
+     bool _UIPause = false;
 
     void Awake()
     {
@@ -66,7 +69,7 @@ public class PlayerInputSystemController : MonoBehaviour
         
         
          
-        if (!_inputPaused) { Inputs(); }
+        if (!_inputPaused && !_UIPause) { Inputs(); }
 
 
         if (!_health.IsAlive()) return;
@@ -88,6 +91,20 @@ public class PlayerInputSystemController : MonoBehaviour
     {
         _inputPaused = true;
         _inputPauseTimeout = Time.time + timeout;
+    }
+
+    public void Pause()
+    {
+        _UIPause = true;
+        _cinemachineInputProvider.enabled = false;
+        _inputMovement = new Vector2(0, 0);
+
+    }
+
+    public void Unpause()
+    {
+        _UIPause = false;
+        _cinemachineInputProvider.enabled = true;
     }
 
     void Inputs()
@@ -183,6 +200,7 @@ public class PlayerInputSystemController : MonoBehaviour
             if (hitCollider.gameObject.GetComponent<AIDialogue>())
             {
                 hitCollider.gameObject.GetComponent<AIDialogue>().StartDialogue();
+                _inputInteract = false;
                 break;
             }
         }

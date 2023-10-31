@@ -11,19 +11,27 @@ using Random = UnityEngine.Random;
 public class PlayerDialogue : MonoBehaviour
 {
     [SerializeField]  string _name;
+     PlayerInputSystemController _playerInputController;
     Dialogue _currentDialogue;
     DialogueNode _currentNode = null; 
     AIDialogue _currentAI = null;
     bool _choosing = false;
 
     public event Action onConcersationUpdated;
-    
+
+     void Start()
+     {
+         _playerInputController = GetComponent<PlayerInputSystemController>();
+     }
+
     public void startDialogue(Dialogue newDialogue, AIDialogue newAIDialogue)
     {
         _currentDialogue = newDialogue;
         _currentAI = newAIDialogue;
         _currentNode = _currentDialogue.GetRootNode();
         onConcersationUpdated();
+        _playerInputController.Pause();
+       
     }
 
     public bool IsActive()
@@ -100,6 +108,7 @@ public class PlayerDialogue : MonoBehaviour
         _currentNode = null;
         _choosing = false;
         onConcersationUpdated();
+        _playerInputController.Unpause();
 
     }
 
