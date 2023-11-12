@@ -7,7 +7,7 @@ using UnityEditor.Experimental;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInputSystemController : MonoBehaviour
+public class PlayerInputSystemController : MonoBehaviour, ISaveable
 {
     [SerializeField]  CinemachineInputProvider _cinemachineInputProvider;
     public PlayerInputs _playerInputs;
@@ -319,6 +319,17 @@ public class PlayerInputSystemController : MonoBehaviour
     public void CancelInputAim()
     {
         _inputAim = false;
+    }
+
+    public object CaptureState()
+    {
+        return new SerializableVector3(transform.position);
+    }
+
+    public void RestoreState(object state)
+    {
+        SerializableVector3 position = (SerializableVector3) state;
+        transform.position = position.ToVector();
     }
 }
 

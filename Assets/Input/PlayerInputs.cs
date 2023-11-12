@@ -56,12 +56,12 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Facing"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""dd5a4ce2-a4d1-4d8a-bee7-3759c067ffd6"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Jump"",
@@ -111,7 +111,16 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
-                    ""id"": ""ec56c9fe-15e4-445c-9ab9-566edffb9dae"",
+                    ""id"": ""c4529a0f-cbea-448c-ae88-fa73ed767869"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Select"",
+                    ""type"": ""Button"",
+                    ""id"": ""140fd451-701f-40ec-98ec-eb2829472872"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -125,7 +134,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": ""StickDeadzone(min=0.2,max=0.925)"",
-                    ""groups"": ""Gamepad;Mouse and Keyboard"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -221,7 +230,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""00970aff-3e65-4a83-82d8-537ce3a889f0"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Mouse and Keyboard"",
@@ -243,10 +252,10 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""444d5689-a373-4ff8-bc62-5a0435ff4833"",
-                    ""path"": ""<Mouse>/rightButton"",
+                    ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": ""InvertVector2(invertX=false),StickDeadzone(min=0.125,max=0.925)"",
-                    ""groups"": ""Mouse and Keyboard"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Facing"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -319,34 +328,34 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""bf223271-e09f-4cd7-8601-6f450a8ac9ce"",
-                    ""path"": ""<Keyboard>/r"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Aim"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""30c01e9c-e839-4dcb-b734-d74ab62f5fb8"",
+                    ""id"": ""392d8124-6c76-4a7c-95da-77718804689d"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Mouse and Keyboard"",
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""62e1eb89-1c81-479a-9e31-0d1c3f786b95"",
+                    ""id"": ""ff316a60-0c23-4908-8014-e81d814363b5"",
                     ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a033b121-c35f-452d-b4a5-d5905218728f"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse and Keyboard"",
+                    ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -389,6 +398,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_Player_WeaponUp = m_Player.FindAction("WeaponUp", throwIfNotFound: true);
         m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_Select = m_Player.FindAction("Select", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -460,6 +470,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_WeaponUp;
     private readonly InputAction m_Player_Aim;
     private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_Select;
     public struct PlayerActions
     {
         private @PlayerInputs m_Wrapper;
@@ -474,6 +485,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @WeaponUp => m_Wrapper.m_Player_WeaponUp;
         public InputAction @Aim => m_Wrapper.m_Player_Aim;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        public InputAction @Select => m_Wrapper.m_Player_Select;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -513,6 +525,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @Select.started += instance.OnSelect;
+            @Select.performed += instance.OnSelect;
+            @Select.canceled += instance.OnSelect;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -547,6 +562,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @Select.started -= instance.OnSelect;
+            @Select.performed -= instance.OnSelect;
+            @Select.canceled -= instance.OnSelect;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -594,5 +612,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnWeaponUp(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnSelect(InputAction.CallbackContext context);
     }
 }

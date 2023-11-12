@@ -1,12 +1,6 @@
 ﻿using System;
 using UnityEngine;
 
-/// <summary>
-/// Provides storage for the player inventory. A configurable number of
-/// slots are available.
-///
-/// This component should be placed on the GameObject tagged "Player".
-/// </summary>
 public class Inventory : MonoBehaviour, ISaveable
 {
     // CONFIG DATA
@@ -130,19 +124,16 @@ public class Inventory : MonoBehaviour, ISaveable
 
     // PRIVATE
 
-void Awake()
+    void Awake()
     {
         slots = new InventoryItem[inventorySize];
-        slots[0] = InventoryItem.GetFromID("71e73607-4bac-4e42-b7d6-5e6f91e92dc4");
-        slots[1] = InventoryItem.GetFromID("0aa7c8b8-4796-42aa-89d0-9d100ea67d7b");
-        slots[2] = InventoryItem.GetFromID("96e7e692-58f0-4938-ab56-dd2538659767");
     }
 
     /// <summary>
     /// Find a slot that can accomodate the given item.
     /// </summary>
     /// <returns>-1 if no slot is found.</returns>
-    private int FindSlot(InventoryItem item)
+    int FindSlot(InventoryItem item)
     {
         return FindEmptySlot();
     }
@@ -151,7 +142,7 @@ void Awake()
     /// Find an empty slot.
     /// </summary>
     /// <returns>-1 if all slots are full.</returns>
-  int FindEmptySlot()
+    int FindEmptySlot()
     {
         for (int i = 0; i < slots.Length; i++)
         {

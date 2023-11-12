@@ -500,6 +500,7 @@ GameObject:
   - component: {fileID: 6169698682571659347}
   - component: {fileID: 5214968747274942470}
   - component: {fileID: 1381560667017687382}
+  - component: {fileID: 5034498689906089314}
   m_Layer: 5
   m_Name: UI Canvas
   m_TagString: Untagged
@@ -605,6 +606,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toggleKey: 105
   uiContainer: {fileID: 1778687718269687490}
+--- !u!114 &5034498689906089314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4019118513755048597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 735827258e6fdc2439ad2aa498d5d85f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4588953471102257714
 GameObject:
   m_ObjectHideFlags: 0
