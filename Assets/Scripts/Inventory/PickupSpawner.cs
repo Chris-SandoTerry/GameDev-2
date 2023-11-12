@@ -8,6 +8,7 @@ public class PickupSpawner : MonoBehaviour, ISaveable
 {
     // CONFIG DATA
     [SerializeField] InventoryItem item = null;
+    [SerializeField] int number = 1;
 
     // LIFECYCLE METHODS
     void Awake()
@@ -39,7 +40,7 @@ public class PickupSpawner : MonoBehaviour, ISaveable
 
     void SpawnPickup()
     {
-        var spawnedPickup = item.SpawnPickup(transform.position);
+        var spawnedPickup = item.SpawnPickup(transform.position, number);
         spawnedPickup.transform.SetParent(transform);
     }
 
