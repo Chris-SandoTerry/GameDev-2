@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Pickup))]
+//2 modify here 
 public class ClickablePickup : MonoBehaviour, IRaycastable
 {
     Pickup _pickup;

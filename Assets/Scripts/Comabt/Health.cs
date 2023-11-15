@@ -9,12 +9,16 @@ public class Health : MonoBehaviour
 
 
     private RPGCharacterController _rpgCharacterController;
+    ItemDropper _itemDropper; 
+    InventoryItem _inventoryItem;
+     Pickup _pickup;
     int _health;
     bool _alive = true;
 
     private void Awake()
     {
         _rpgCharacterController = GetComponent<RPGCharacterController>();
+        _itemDropper = GetComponent<ItemDropper>();
     }
 
     void Start()
@@ -37,8 +41,10 @@ public class Health : MonoBehaviour
         {
             _rpgCharacterController.Knockdown(KnockdownType.Knockdown1);
             _alive = false;
+            _itemDropper.SpawnPickup(_inventoryItem, 1, transform.position);
+            _itemDropper.DropItem(_inventoryItem, 1);
             AudioManager.Instance.musicSource.Stop();
-            AudioManager.Instance.PlaySFX("Death");
+            //AudioManager.Instance.PlaySFX("Death");
 
 
             if (GetComponent<Target>())

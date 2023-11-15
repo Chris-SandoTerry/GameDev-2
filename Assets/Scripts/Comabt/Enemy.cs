@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] AudioClip _detectionAudioClip;
     [SerializeField]  AudioSource _musicAudioSource;
     [SerializeField] AudioClip _musicAudioClip;
+    [SerializeField] InventoryItem _item;
     
 
     RPGCharacterController _rpgCharacterController;
@@ -29,7 +30,7 @@ public class Enemy : MonoBehaviour
     NavMeshAgent _navMeshAgent;
     Health _health;
     GameObject _player;
-     Health _playerHealth;
+    Health _playerHealth;
     Vector3 _targetPosition;
     Vector3 _originPosition;
    bool _aggro = false;
