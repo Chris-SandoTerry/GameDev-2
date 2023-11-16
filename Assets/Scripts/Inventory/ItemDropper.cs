@@ -16,9 +16,9 @@ public class ItemDropper : MonoBehaviour, ISaveable
     /// Create a pickup at the current position.
     /// </summary>
     /// <param name="item">The item type for the pickup.</param>
-    public void DropItem(InventoryItem item, int number)
+    public void DropItem(InventoryItem item)
     {
-        SpawnPickup(item, number, GetDropLocation());
+        SpawnPickup(item, GetDropLocation());
     }
 
     // PROTECTED
@@ -34,9 +34,9 @@ public class ItemDropper : MonoBehaviour, ISaveable
 
     // PRIVATE
 
-    public void SpawnPickup(InventoryItem item, int number, Vector3 spawnLocation)
+    public void SpawnPickup(InventoryItem item, Vector3 spawnLocation)
     {
-        var pickup = item.SpawnPickup(spawnLocation, number);
+        var pickup = item.SpawnPickup(spawnLocation);
         droppedItems.Add(pickup);
     }
 
@@ -69,7 +69,7 @@ public class ItemDropper : MonoBehaviour, ISaveable
             var pickupItem = InventoryItem.GetFromID(item.itemID);
             Vector3 position = item.position.ToVector();
             int number = item.number;
-            SpawnPickup(pickupItem, number, position);
+            SpawnPickup(pickupItem, position);
         }
     }
 

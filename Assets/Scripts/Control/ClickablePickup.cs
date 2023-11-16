@@ -11,6 +11,7 @@ public class ClickablePickup : MonoBehaviour, IRaycastable
     {
         _playerInputSystem = FindObjectOfType<PlayerInputSystemController>();
         _pickup = GetComponent<Pickup>();
+       
     }
 
     public CursorType GetCursorType()

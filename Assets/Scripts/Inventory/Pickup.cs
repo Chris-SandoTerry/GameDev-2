@@ -27,10 +27,10 @@ public class Pickup : MonoBehaviour
     /// Set the vital data after creating the prefab.
     /// </summary>
     /// <param name="item">The type of item this prefab represents.</param>
-    public void Setup(InventoryItem item, int number)
+    public void Setup(InventoryItem item)
     {
         this.item = item;
-        this.number = number;
+        
     }
 
     public InventoryItem GetItem()

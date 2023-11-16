@@ -22,7 +22,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] AudioClip _detectionAudioClip;
     [SerializeField]  AudioSource _musicAudioSource;
     [SerializeField] AudioClip _musicAudioClip;
-    [SerializeField] InventoryItem _item;
+ 
+  
     
 
     RPGCharacterController _rpgCharacterController;

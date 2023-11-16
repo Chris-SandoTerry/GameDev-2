@@ -66,11 +66,11 @@ public class InventoryItem : ScriptableObject, ISerializationCallbackReceiver   
     /// </summary>
     /// <param name="position">Where to spawn the pickup.</param>
     /// <returns>Reference to the pickup object spawned.</returns>
-    public Pickup SpawnPickup(Vector3 position, int number)
+    public Pickup SpawnPickup(Vector3 position)
     {
         var pickup = Instantiate(this.pickup);
         pickup.transform.position = position;
-        pickup.Setup(this, number);
+        pickup.Setup(this);
         return pickup;
     }
 
