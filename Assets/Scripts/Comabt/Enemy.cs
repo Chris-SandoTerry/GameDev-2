@@ -150,6 +150,6 @@ public class Enemy : MonoBehaviour
 
     public void DropItem()
     {
-        _itemDropper.DropItem(_item, 1);
+        GetComponent<ItemDropper>().DropItem(_item, 1);
     }
 }
