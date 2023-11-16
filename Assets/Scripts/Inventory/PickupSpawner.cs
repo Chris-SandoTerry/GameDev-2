@@ -40,7 +40,7 @@ public class PickupSpawner : MonoBehaviour, ISaveable
 
     void SpawnPickup()
     {
-        var spawnedPickup = item.SpawnPickup(transform.position);
+        var spawnedPickup = item.SpawnPickup(transform.position,number);
         spawnedPickup.transform.SetParent(transform);
     }
 

@@ -141,7 +141,7 @@ public class Inventory : MonoBehaviour, ISaveable
         {
             slot = i;
         }
-
+    
         slots[slot].item = item;
         slots[slot].number += number;
         

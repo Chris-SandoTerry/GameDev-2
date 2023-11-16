@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] AudioClip _detectionAudioClip;
     [SerializeField]  AudioSource _musicAudioSource;
     [SerializeField] AudioClip _musicAudioClip;
+    [SerializeField]  InventoryItem _item;
  
   
     
@@ -34,7 +35,8 @@ public class Enemy : MonoBehaviour
     Health _playerHealth;
     Vector3 _targetPosition;
     Vector3 _originPosition;
-   bool _aggro = false;
+    ItemDropper _itemDropper;
+    bool _aggro = false;
     float _timeSinceLastAttack = 0f; 
     bool _musicPlaying = true;
 
@@ -144,5 +146,10 @@ public class Enemy : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(transform.position, _attackRange);
         
+    }
+
+    public void DropItem()
+    {
+        _itemDropper.DropItem(_item, 1);
     }
 }

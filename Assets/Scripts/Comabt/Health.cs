@@ -8,9 +8,10 @@ public class Health : MonoBehaviour
     [SerializeField] private int _maxHealth = 100;
 
     private RPGCharacterController _rpgCharacterController;
-    private InventoryDropTarget _inventoryDragItem;
-    private ItemDropper _item;
+    private Enemy _itemsDropped;
     private InventoryItem _inventoryItem;
+    private ItemDropper _bruh;
+   
     int _health;
     bool _alive = true;
 
@@ -40,9 +41,8 @@ public class Health : MonoBehaviour
             _rpgCharacterController.Knockdown(KnockdownType.Knockdown1);
             _alive = false;
             
-            _item.DropItem(_inventoryItem);
-            _item.SpawnPickup(_inventoryItem, transform.position);
             
+           _itemsDropped.DropItem();
              
             AudioManager.Instance.musicSource.Stop();
             //AudioManager.Instance.PlaySFX("Death");
