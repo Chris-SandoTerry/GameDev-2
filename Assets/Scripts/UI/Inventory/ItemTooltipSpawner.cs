@@ -10,6 +10,7 @@ public class ItemTooltipSpawner : TooltipSpawner
     {
         var item = GetComponent<IItemHolder>().GetItem();
         if (!item) return false;
+       
 
         return true;
     }

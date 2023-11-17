@@ -5,6 +5,7 @@ using UnityEngine;
 public class ClickablePickup : MonoBehaviour, IRaycastable
 {
     Pickup _pickup;
+     InventoryItem _item;
     PlayerInputSystemController _playerInputSystem;
 
     void Awake()

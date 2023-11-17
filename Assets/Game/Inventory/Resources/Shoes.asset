@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dc047c233344664c9996be4c36379e2, type: 3}
   m_Name: Shoes
   m_EditorClassIdentifier: 
-  itemID: 96e7e692-58f0-4938-ab56-dd2538659767
+  itemID: fbf6e6fa-7c3b-4268-a347-518162041e5b
   displayName: Boots
   description: 'Nice comfy shoes '
   icon: {fileID: 21300000, guid: 53f59e0f1e337114a9de3d4cdfae9210, type: 3}

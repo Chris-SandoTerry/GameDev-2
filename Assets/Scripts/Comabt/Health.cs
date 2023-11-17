@@ -43,9 +43,6 @@ public class Health : MonoBehaviour
             {
                 enemy.DropItem();
             }
-            
-            
-
 
             AudioManager.Instance.musicSource.Stop();
             //AudioManager.Instance.PlaySFX("Death");
