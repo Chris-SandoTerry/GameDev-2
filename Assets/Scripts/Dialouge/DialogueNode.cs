@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class DialogueNode : ScriptableObject
 {
-    [SerializeField]  bool _isPlayer = false;
+    [SerializeField] bool _isPlayer = false;
     [SerializeField] string _text;
     [SerializeField] List<string> _children = new List<string>();
     [SerializeField] Rect _rect = new Rect(0, 0, 200, 100);
+    [SerializeField] string _onEnterAction;
+    [SerializeField] string _onExitAction;
 
     public Rect GetRect()
     {
@@ -29,6 +31,23 @@ public class DialogueNode : ScriptableObject
     {
         return _isPlayer;
     }
+
+    public string GetOnEnterAction()
+    {
+        return _onEnterAction;
+    }
+    
+    
+    public string GetOnExitAction()
+    {
+        return _onExitAction;
+    }
+
+
+
+
+
+
 #if UNITY_EDITOR
     public void SetPosition(Vector2 newPosition)
     {

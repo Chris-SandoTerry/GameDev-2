@@ -29,6 +29,7 @@ public class PlayerDialogue : MonoBehaviour
         _currentDialogue = newDialogue;
         _currentAI = newAIDialogue;
         _currentNode = _currentDialogue.GetRootNode();
+        TriggerEnterAction();
         onConcersationUpdated();
         _playerInputController.Pause();
        
@@ -62,6 +63,7 @@ public class PlayerDialogue : MonoBehaviour
     public void SelectChoice(DialogueNode chosenNode)
     {
         _currentNode = chosenNode;
+        TriggerEnterAction();
         _choosing = false;
         Next();
     }
@@ -86,13 +88,16 @@ public class PlayerDialogue : MonoBehaviour
         if (numPlayerResponses > 0)
         {
             _choosing = true;
+            TriggerExitAction();
             onConcersationUpdated();
             return;
         }
 
         DialogueNode[] children = _currentDialogue.GetAIChildren(_currentNode).ToArray();
         int randomInddex = Random.Range(0, children.Length);
+        TriggerExitAction();
         _currentNode = children[randomInddex];
+        TriggerEnterAction();
         onConcersationUpdated();
     }
 
@@ -104,12 +109,45 @@ public class PlayerDialogue : MonoBehaviour
     public void Quit()
     {
         _currentDialogue = null;
+        TriggerExitAction();
         _currentAI = null;
         _currentNode = null;
         _choosing = false;
         onConcersationUpdated();
         _playerInputController.Unpause();
 
+    }
+
+     void TriggerEnterAction()
+    {
+        if (_currentNode != null)
+        {
+            TriggerAction(_currentNode.GetOnEnterAction());
+        }
+    }
+    
+     void TriggerExitAction()
+    {
+        if (_currentNode != null)
+        {
+            TriggerAction(_currentNode.GetOnExitAction());
+        }
+    }
+    
+     void TriggerAction(string action)
+    {
+        if (action == "") return;
+
+        foreach ( DialogueTrigger trigger in _currentAI.GetComponents<DialogueTrigger>())
+        {
+            trigger.Trigger(action);
+        }
+        
+         
+         
+         
+        
+       
     }
 
 }

@@ -7,10 +7,12 @@ using UnityEditor.Experimental;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class PlayerInputSystemController : MonoBehaviour, ISaveable
 {
     [SerializeField]  CinemachineInputProvider _cinemachineInputProvider;
     public PlayerInputs _playerInputs;
+    public MapController _mapController;
     
     Targeter _targeter;
     RPGCharacterController _rpgCharacterController;
@@ -331,6 +333,18 @@ public class PlayerInputSystemController : MonoBehaviour, ISaveable
         SerializableVector3 position = (SerializableVector3) state;
         transform.position = position.ToVector();
     }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("DiscoverableArea"))//need to make spots on the map with tags 
+        {
+            // Get the position of the discovered area and update the map
+            Vector3 areaPosition = other.transform.position;
+            int x = Mathf.RoundToInt(areaPosition.x);
+            int y = Mathf.RoundToInt(areaPosition.z); // Assuming your map is on the X-Z plane
+            _mapController.DiscoverArea(x, y);
+        }
+    }
+
 }
 
 /// <summary>
