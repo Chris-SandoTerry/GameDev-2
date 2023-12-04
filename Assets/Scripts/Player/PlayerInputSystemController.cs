@@ -13,6 +13,7 @@ public class PlayerInputSystemController : MonoBehaviour, ISaveable
     [SerializeField]  CinemachineInputProvider _cinemachineInputProvider;
     public PlayerInputs _playerInputs;
     public MapController _mapController;
+    public Inventory _Inventory;
     
     Targeter _targeter;
     RPGCharacterController _rpgCharacterController;
@@ -44,6 +45,7 @@ public class PlayerInputSystemController : MonoBehaviour, ISaveable
         _rpgCharacterController = GetComponent<RPGCharacterController>();
         _playerInputs = new PlayerInputs();
         _health = GetComponent<Health>();
+      
 
     }
 

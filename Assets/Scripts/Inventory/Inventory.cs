@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEditor;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour, ISaveable
@@ -9,6 +10,8 @@ public class Inventory : MonoBehaviour, ISaveable
 
     // STATE
     InventorySlot[] slots;
+     InventoryItem _item;
+      Map _map;
 
     public struct InventorySlot
     {
@@ -101,6 +104,17 @@ public class Inventory : MonoBehaviour, ISaveable
     public int GetNumberInSlot(int slot)
     {
         return slots[slot].number;
+    }
+    
+    
+    //use Item
+    public void UseItem(InventoryItem item)
+    {
+        if (_item.GetDisplayName() == "Map") 
+        {
+            //Display the map 
+            _map.DisplayMap();
+        }
     }
 
     /// <summary>
